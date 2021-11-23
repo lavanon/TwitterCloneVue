@@ -24,6 +24,10 @@
 </script>
 
 
+<template>
+    <div id="searchButton" class="ui fluid action input">
+        <input type="text" v-on:keyup.enter="activateSearch" v-model="search" placeholder="Search...">
+        <div @click="activateSearch" class="ui button">Search</div>
     </div>
     <div id="article" class="ui comments" v-for="(item, index) in apiData" :key="index">
         <div class="comment">
@@ -42,24 +46,19 @@
         </div>
     </div>
 </template>
+
+
+
 <style>
-/* #app {
-    padding: 0.5rem;
-    background: #f8f9fa;
-    color: #495057;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-}
-#item {
-      display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-} */
-#img {
-  height: 30px;
-  width:30px;
-}
-#searchButton {
-  padding-bottom: 10px;
-}
+    #img {
+        height: 30px;
+        width:30px;
+    }
+    #searchButton {
+        padding: 20px;
+    }
+    #article {
+        padding-left: 20px;
+        max-width:750px;
+    }
 </style>
