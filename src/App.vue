@@ -1,29 +1,28 @@
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    // HelloWorld
-  },
-  data() {
-    return {
-      apiData: []
+    export default {
+        name: 'app',
+        components: { },
+        data() {
+            return {
+            search: 'tesla',
+            apiData: [],
+            }
+        },
+        mounted() {
+            fetch(`https://api.parsely.com/v2/search?apikey=arstechnica.com&q=${this.search}&days=30`)
+            .then(res => res.json())
+            .then(data => this.apiData = data.data)
+        },
+        methods: {
+            activateSearch() {
+                fetch(`https://api.parsely.com/v2/search?apikey=arstechnica.com&q=${this.search}&days=30`)
+                .then(res => res.json())
+                .then(data => this.apiData = data.data)
+            }
+        }
     }
-  },
-  mounted() {
-    fetch("https://api.parsely.com/v2/search?apikey=arstechnica.com&q=apple&days=30")
-      .then(res => res.json())
-      .then(data => this.apiData = data.data)
-  }
-}
 </script>
 
-<template>
-<div id="searchButton" class="ui fluid action input">
-  <input type="text" placeholder="Search...">
-  <div class="ui button">Search</div>
-</div>
 
 <div class="ui comments" v-for="(item, index) in apiData" :key="index">
   <div class="comment">
@@ -62,6 +61,21 @@ export default {
       <div class="actions">
         <a class="reply">Reply</a>
       </div>
+    <div id="article" class="ui comments" v-for="(item, index) in apiData" :key="index">
+        <div class="comment">
+            <a class="avatar">
+                <img id="img" :src="item.image_url" >
+            </a>
+            <div class="content">
+                <a :href="item.url" target="blank" class="author">{{item.title}}</a>
+                <div class="metadata">
+                    <span class="date">{{item.pub_date}}</span>
+                </div>
+                <div class="text">
+                    {{item.author}}
+                </div>
+            </div>
+        </div>
     </div>
   </div> -->
 <!-- <div id="app" v-for="(item, index) in apiData" :key="index">
