@@ -77,15 +77,6 @@
             </div>
         </div>
     </div>
-  </div> -->
-<!-- <div id="app" v-for="(item, index) in apiData" :key="index">
-  <ul id="item" >
-    <li><img id="img" :src="item.image_url" ></li>
-    
-    <li>{{index}}. {{item.title}}</li>
-    <li>{{item.pub_date}} </li>
-    </ul>
-</div> -->
 </template>
 <style>
 /* #app {
