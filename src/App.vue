@@ -44,23 +44,6 @@
         </a>
       </div>
     </div>
-  </div>
-</div>
-  <!-- <div id="app" class="ui comments" v-for="(item, index) in apiData" :key="index">
-    <a class="avatar">
-      <img id="img" :src="item.image_url" >
-    </a>
-    <div class="content">
-      <a class="author">{{item.title}}</a>
-      <div class="metadata">
-        <span class="date">{{item.pub_date}}</span>
-      </div>
-      <div class="text">
-        {{item.author}}
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
     <div id="article" class="ui comments" v-for="(item, index) in apiData" :key="index">
         <div class="comment">
             <a class="avatar">
