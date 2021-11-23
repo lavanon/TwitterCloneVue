@@ -24,25 +24,6 @@
 </script>
 
 
-<div class="ui comments" v-for="(item, index) in apiData" :key="index">
-  <div class="comment">
-    <a class="avatar">
-      <img id="img" :src="item.image_url" >
-    </a>
-    <div class="content">
-      <a class="author">Tom Lukic</a>
-      <div class="text">
-        This will be great for business reports. I will definitely download this.
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-        <a class="save">Save</a>
-        <a class="hide">Hide</a>
-        <a>
-          <i class="expand icon"></i>
-          Full-screen
-        </a>
-      </div>
     </div>
     <div id="article" class="ui comments" v-for="(item, index) in apiData" :key="index">
         <div class="comment">
