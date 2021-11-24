@@ -5,6 +5,7 @@
     export default {
         name: 'app',
         components: { },
+        components: { NavBar},
         data() {
             return {
             search: 'tesla',
@@ -18,7 +19,7 @@
         },
         methods: {
             activateSearch() {
-                fetch(`https://api.parsely.com/v2/search?apikey=arstechnica.com&q=${this.search}&days=30`)
+                fetch(`https://api.parsely.com/v2/search?apikey=arstechnica.com&q=${this.search.replace(/[^\w\s]/gi, '')}&days=${this.selected}`)
                 .then(res => res.json())
                 .then(data => this.apiData = data.data)
             }
@@ -32,6 +33,13 @@
     <div id="searchButton" class="ui fluid action input">
         <input type="text" v-on:keyup.enter="activateSearch" v-model="search" placeholder="Search...">
         <div @click="activateSearch" class="ui button">Search</div>
+        <select class="dropdown" v-model="selected" @change="activateSearch">
+            <option  disabled value="">Adjust time span</option>
+            <option value="1">Today</option>
+            <option value="7" >This Week</option>
+            <option value="30">This Month</option>
+            <option value="365">This Year</option>
+        </select>
     </div>
     <div id="article" class="ui comments" v-for="(item, index) in apiData" :key="index">
         <div class="comment">
