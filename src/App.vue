@@ -1,4 +1,7 @@
 <script>
+<script>    
+    import NavBar from './components/NavBar.vue'
+
     export default {
         name: 'app',
         components: { },
@@ -25,6 +28,7 @@
 
 
 <template>
+ <NavBar/>
     <div id="searchButton" class="ui fluid action input">
         <input type="text" v-on:keyup.enter="activateSearch" v-model="search" placeholder="Search...">
         <div @click="activateSearch" class="ui button">Search</div>
